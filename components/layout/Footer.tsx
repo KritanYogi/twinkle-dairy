@@ -47,44 +47,44 @@ export default function Footer() {
 
   return (
     <footer className="bg-ink-900 text-white/80">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-15">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 mb-12">
-          <div>
-            <p className="font-display text-2xl text-white mb-4">
-              Twinkle Dairy
-            </p>
-            <p className="text-sm leading-relaxed mb-6 max-w-xs">
-              Fresh dairy and handcrafted sweets, made in small batches every
-              morning, for three generations.
-            </p>
-            <div className="flex gap-3">
-              <Link
-                href="https://instagram.com"
-                aria-label="Twinkle Dairy on Instagram"
-                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors hover:bg-white/10"
-              >
-                <AtSign size={18} strokeWidth={1.75} />
-              </Link>
-              <Link
-                href="https://facebook.com"
-                aria-label="Twinkle Dairy on Facebook"
-                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-colors hover:bg-white/10"
-              >
-                <Share2 size={18} strokeWidth={1.75} />
-              </Link>
-            </div>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-6 sm:py-8">
+        <div className="mb-5 sm:mb-8">
+          <p className="font-display text-lg sm:text-xl text-white mb-2">
+            Twinkle Dairy
+          </p>
+          <p className="text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 max-w-xs">
+            Fresh dairy and handcrafted sweets, made in small batches every
+            morning, for three generations.
+          </p>
+          <div className="flex gap-2">
+            <Link
+              href="https://instagram.com"
+              aria-label="Twinkle Dairy on Instagram"
+              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center transition-colors hover:bg-white/10"
+            >
+              <AtSign size={14} strokeWidth={1.75} />
+            </Link>
+            <Link
+              href="https://facebook.com"
+              aria-label="Twinkle Dairy on Facebook"
+              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center transition-colors hover:bg-white/10"
+            >
+              <Share2 size={14} strokeWidth={1.75} />
+            </Link>
           </div>
+        </div>
 
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 mb-5 sm:mb-8">
           <div>
-            <p className="font-semibold text-white text-sm uppercase tracking-wide mb-4">
+            <p className="font-semibold text-white text-xs uppercase tracking-wide mb-2 sm:mb-3">
               Shop
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-1.5 sm:space-y-2">
               {FOOTER_LINKS.shop.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors hover:text-white"
+                    className="text-xs sm:text-sm transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -94,15 +94,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-semibold text-white text-sm uppercase tracking-wide mb-4">
+            <p className="font-semibold text-white text-xs uppercase tracking-wide mb-2 sm:mb-3">
               Company
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-1.5 sm:space-y-2">
               {FOOTER_LINKS.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors hover:text-white"
+                    className="text-xs sm:text-sm transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -111,16 +111,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <p className="font-semibold text-white text-sm uppercase tracking-wide mb-4">
+          <div className="col-span-2 lg:col-span-1">
+            <p className="font-semibold text-white text-xs uppercase tracking-wide mb-2 sm:mb-3">
               Legal
             </p>
-            <ul className="space-y-3">
+            <ul className="flex flex-row gap-4 lg:flex-col lg:gap-2">
               {FOOTER_LINKS.support.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors hover:text-white"
+                    className="text-xs sm:text-sm transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -130,28 +130,28 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-3 text-sm">
-              <MapPin size={16} strokeWidth={1.75} />
+        <div className="border-t border-white/10 pt-4 sm:pt-5 grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <MapPin size={13} strokeWidth={1.75} />
               <span>Kathmandu, Nepal</span>
             </div>
-            <div className="flex items-center gap-3 text-sm">
-              <Phone size={16} strokeWidth={1.75} />
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <Phone size={13} strokeWidth={1.75} />
               <span>+977 1-XXXXXXX</span>
             </div>
-            <div className="flex items-center gap-3 text-sm">
-              <Mail size={16} strokeWidth={1.75} />
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <Mail size={13} strokeWidth={1.75} />
               <span>hello@twinkledairy.com</span>
             </div>
           </div>
 
           <div>
-            <p className="font-semibold text-white text-sm uppercase tracking-wide mb-3">
+            <p className="font-semibold text-white text-xs uppercase tracking-wide mb-2">
               Get festival updates
             </p>
             {submitted ? (
-              <p className="text-sm text-gold-500">
+              <p className="text-xs sm:text-sm text-gold-500">
                 Thanks, you are on the list.
               </p>
             ) : (
@@ -160,7 +160,7 @@ export default function Footer() {
                 className="flex flex-col gap-2"
                 noValidate
               >
-                <div className="flex gap-3">
+                <div className="flex gap-2">
                   <div className="flex-1">
                     <Label htmlFor="newsletter-email" className="sr-only">
                       Email address
@@ -169,14 +169,14 @@ export default function Footer() {
                       id="newsletter-email"
                       type="email"
                       placeholder="you@example.com"
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-gold-500"
+                      className="h-9 text-xs sm:text-sm bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-gold-500"
                       {...register("email")}
                     />
                   </div>
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-gold-500 text-ink-900 hover:bg-gold-600 rounded-button px-6"
+                    className="h-9 text-xs sm:text-sm bg-gold-500 text-ink-900 hover:bg-gold-600 rounded-button px-4"
                   >
                     Join
                   </Button>
@@ -191,7 +191,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-xs text-white/50 text-center">
+        <div className="border-t border-white/10 pt-3 sm:pt-4 text-[11px] text-white/50 text-center">
           (c) {new Date().getFullYear()} Twinkle Dairy. All rights reserved.
         </div>
       </div>

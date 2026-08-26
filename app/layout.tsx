@@ -3,7 +3,6 @@ import { Playfair_Display, Manrope, Geist } from "next/font/google";
 import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 import ThemeProvider from "@/components/motion/ThemeProvider";
 import FloatingContactButtons from "@/components/layout/FloatingContactButtons";
-import BackToTop from "@/components/layout/BackToTop";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -22,9 +21,48 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const siteUrl = "https://twinkledairy.com";
+const ogImage = "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1200&h=630&q=80";
+
 export const metadata: Metadata = {
-  title: "Twinkle Dairy | Fresh Dairy, Handcrafted Sweets",
-  description: "Premium dairy and traditional sweets, made fresh daily.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Twinkle Dairy | Fresh Dairy, Handcrafted Sweets",
+    template: "%s | Twinkle Dairy",
+  },
+  description:
+    "Premium dairy and traditional sweets, made fresh daily in Kathmandu. Three generations of honest, small-batch craft.",
+  keywords: [
+    "dairy Kathmandu",
+    "fresh milk Nepal",
+    "ghee Kathmandu",
+    "traditional sweets Nepal",
+    "mithai Kathmandu",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Twinkle Dairy",
+    title: "Twinkle Dairy | Fresh Dairy, Handcrafted Sweets",
+    description:
+      "Premium dairy and traditional sweets, made fresh daily in Kathmandu. Three generations of honest, small-batch craft.",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Twinkle Dairy - fresh dairy and traditional sweets",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Twinkle Dairy | Fresh Dairy, Handcrafted Sweets",
+    description:
+      "Premium dairy and traditional sweets, made fresh daily in Kathmandu.",
+    images: [ogImage],
+  },
 };
 
 export default function RootLayout({
@@ -49,7 +87,6 @@ export default function RootLayout({
         <ThemeProvider>
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
           <FloatingContactButtons />
-          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

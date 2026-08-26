@@ -4,8 +4,12 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Twinkle Dairy",
+  title: "Terms & Conditions",
   description: "Terms governing the use of the Twinkle Dairy website.",
+  openGraph: {
+    title: "Terms & Conditions | Twinkle Dairy",
+    description: "Terms governing the use of the Twinkle Dairy website.",
+  },
 };
 
 export default function TermsPage() {

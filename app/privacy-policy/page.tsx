@@ -4,8 +4,12 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Twinkle Dairy",
+  title: "Privacy Policy",
   description: "How Twinkle Dairy collects, uses, and protects your information.",
+  openGraph: {
+    title: "Privacy Policy | Twinkle Dairy",
+    description: "How Twinkle Dairy collects, uses, and protects your information.",
+  },
 };
 
 export default function PrivacyPolicyPage() {

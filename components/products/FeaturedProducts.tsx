@@ -47,7 +47,7 @@ export default function FeaturedProducts() {
               640: { slidesPerView: 2.2 },
               1024: { slidesPerView: 3.2 },
             }}
-            className="!pb-12"
+            className="featured-swiper !pb-12"
           >
             {featuredProducts.map((product) => (
               <SwiperSlide key={product.id} className="h-auto">
@@ -57,6 +57,33 @@ export default function FeaturedProducts() {
           </Swiper>
         </motion.div>
       </motion.div>
+
+      <style jsx global>{`
+        .featured-swiper .swiper-button-next,
+        .featured-swiper .swiper-button-prev {
+          width: 28px;
+          height: 28px;
+          color: #1e293b;
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 9999px;
+        }
+        .featured-swiper .swiper-button-next::after,
+        .featured-swiper .swiper-button-prev::after {
+          font-size: 12px;
+          font-weight: 700;
+        }
+        @media (min-width: 640px) {
+          .featured-swiper .swiper-button-next,
+          .featured-swiper .swiper-button-prev {
+            width: 40px;
+            height: 40px;
+          }
+          .featured-swiper .swiper-button-next::after,
+          .featured-swiper .swiper-button-prev::after {
+            font-size: 16px;
+          }
+        }
+      `}</style>
     </section>
   );
 }

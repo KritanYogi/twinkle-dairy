@@ -51,16 +51,15 @@ export default function Hero() {
       ref={sectionRef}
       className="relative h-[100svh] min-h-[640px] w-full overflow-hidden"
     >
-      {/* Background layer — zooms 115% -> 100% on scroll */}
       <div ref={imageRef} className="absolute inset-0 will-change-transform">
         <Image
-  src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1920&q=80"
-  alt="Fresh dairy products and traditional sweets at Twinkle Dairy"
-  fill
-  priority
-  className="object-cover"
-  sizes="100vw"
-/>
+          src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1920&q=80"
+          alt="Fresh dairy products and traditional sweets at Twinkle Dairy"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
         <div
           className="absolute inset-0"
           style={{
@@ -70,8 +69,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-start justify-end max-w-7xl mx-auto px-6 sm:px-8 pb-24 sm:pb-32">
+      <div className="relative z-10 h-full flex flex-col items-start justify-end max-w-7xl mx-auto px-6 sm:px-8 pb-16 sm:pb-24 lg:pb-32">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -79,14 +77,14 @@ export default function Hero() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-gold-500 font-semibold tracking-[0.2em] text-xs sm:text-sm uppercase mb-5"
+            className="text-gold-500 font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-[11px] sm:text-sm uppercase mb-3 sm:mb-5"
           >
             Since three generations
           </motion.p>
 
-          <h1 className="font-display text-white text-4xl sm:text-6xl lg:text-7xl leading-[1.05] max-w-3xl overflow-hidden">
+          <h1 className="font-display text-white text-3xl sm:text-6xl lg:text-7xl leading-[1.1] sm:leading-[1.05] max-w-3xl overflow-hidden">
             {words.map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-3 sm:mr-4">
+              <span key={i} className="inline-block overflow-hidden mr-2 sm:mr-4">
                 <motion.span
                   custom={i}
                   variants={wordReveal}
@@ -101,7 +99,7 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             custom={words.length + 1}
-            className="mt-6 max-w-xl text-white/85 text-lg leading-relaxed"
+            className="mt-3 sm:mt-6 max-w-xl text-white/85 text-sm sm:text-lg leading-relaxed"
           >
             Farm-fresh dairy and handcrafted sweets, made in small batches
             every morning — never the other way around.
@@ -110,17 +108,17 @@ export default function Hero() {
           <motion.div
             variants={fadeUp}
             custom={words.length + 2}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-5 sm:mt-10 flex flex-wrap gap-3 sm:gap-4"
           >
             <Link
               href="/categories/milk"
-              className="rounded-button bg-gold-500 px-8 py-4 text-sm font-semibold uppercase tracking-wide text-ink-900 shadow-gold-glow transition-transform hover:-translate-y-0.5"
+              className="rounded-button bg-gold-500 px-5 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-ink-900 shadow-gold-glow transition-transform hover:-translate-y-0.5"
             >
               Shop Fresh Dairy
             </Link>
             <Link
               href="/categories/traditional-sweets"
-              className="rounded-button border border-white/40 px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+              className="rounded-button border border-white/40 px-5 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white backdrop-blur-sm transition-colors hover:bg-white/10"
             >
               Explore Sweets
             </Link>
@@ -128,7 +126,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
@@ -138,7 +135,6 @@ export default function Hero() {
         <ChevronDown size={28} strokeWidth={1.5} />
       </motion.div>
 
-      {/* Signature element: a golden "drip" divider */}
       <div className="absolute -bottom-px left-0 right-0 z-10 leading-[0]">
         <svg
           viewBox="0 0 1440 80"
