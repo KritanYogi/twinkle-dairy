@@ -8,20 +8,33 @@ import { AtSign, Share2, Mail, MapPin, Phone } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { newsletterSchema, type NewsletterFormValues } from "@/lib/schemas";
+import {
+  newsletterSchema,
+  type NewsletterFormValues,
+} from "@/lib/schemas";
+
+const PHONE_NUMBER = "9847867651";
 
 const FOOTER_LINKS = {
   shop: [
     { label: "Fresh Milk", href: "/categories/milk" },
     { label: "Pure Ghee", href: "/categories/ghee" },
-    { label: "Traditional Sweets", href: "/categories/traditional-sweets" },
-    { label: "Gift Boxes", href: "/categories/premium-gift-boxes" },
+    {
+      label: "Traditional Sweets",
+      href: "/categories/traditional-sweets",
+    },
+    {
+      label: "Gift Boxes",
+      href: "/categories/premium-gift-boxes",
+    },
   ],
+
   company: [
     { label: "Our Story", href: "/about" },
     { label: "Gallery", href: "/gallery" },
     { label: "Contact Us", href: "/contact" },
   ],
+
   support: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms & Conditions", href: "/terms" },
@@ -47,44 +60,51 @@ export default function Footer() {
 
   return (
     <footer className="bg-ink-900 text-white/80">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-6 sm:py-8">
-        <div className="mb-5 sm:mb-8">
-          <p className="font-display text-lg sm:text-xl text-white mb-2">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-10">
+        {/* Brand */}
+        <div className="mb-7 sm:mb-8">
+          <p className="mb-2 font-display text-lg text-white sm:text-xl">
             Twinkle Dairy
           </p>
-          <p className="text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 max-w-xs">
-            Fresh dairy and handcrafted sweets, made in small batches every
-            morning, for three generations.
+
+          <p className="mb-4 max-w-xs text-xs leading-relaxed sm:text-sm">
+            Fresh dairy and handcrafted sweets, made in small batches
+            every morning, for three generations.
           </p>
+
           <div className="flex gap-2">
             <Link
               href="https://instagram.com"
               aria-label="Twinkle Dairy on Instagram"
-              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center transition-colors hover:bg-white/10"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10"
             >
               <AtSign size={14} strokeWidth={1.75} />
             </Link>
+
             <Link
               href="https://facebook.com"
               aria-label="Twinkle Dairy on Facebook"
-              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center transition-colors hover:bg-white/10"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white/10"
             >
               <Share2 size={14} strokeWidth={1.75} />
             </Link>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 mb-5 sm:mb-8">
+        {/* Footer navigation */}
+        <div className="mb-7 grid grid-cols-2 gap-6 sm:mb-8 sm:gap-8 lg:grid-cols-3">
+          {/* Shop */}
           <div>
-            <p className="font-semibold text-white text-xs uppercase tracking-wide mb-2 sm:mb-3">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-white">
               Shop
             </p>
-            <ul className="space-y-1.5 sm:space-y-2">
+
+            <ul className="space-y-2">
               {FOOTER_LINKS.shop.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm transition-colors hover:text-white"
+                    className="text-xs transition-colors hover:text-white sm:text-sm"
                   >
                     {link.label}
                   </Link>
@@ -93,16 +113,18 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Company */}
           <div>
-            <p className="font-semibold text-white text-xs uppercase tracking-wide mb-2 sm:mb-3">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-white">
               Company
             </p>
-            <ul className="space-y-1.5 sm:space-y-2">
+
+            <ul className="space-y-2">
               {FOOTER_LINKS.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm transition-colors hover:text-white"
+                    className="text-xs transition-colors hover:text-white sm:text-sm"
                   >
                     {link.label}
                   </Link>
@@ -111,16 +133,18 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Legal */}
           <div className="col-span-2 lg:col-span-1">
-            <p className="font-semibold text-white text-xs uppercase tracking-wide mb-2 sm:mb-3">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-white">
               Legal
             </p>
-            <ul className="flex flex-row gap-4 lg:flex-col lg:gap-2">
+
+            <ul className="flex flex-wrap gap-x-4 gap-y-2 lg:flex-col lg:gap-2">
               {FOOTER_LINKS.support.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm transition-colors hover:text-white"
+                    className="text-xs transition-colors hover:text-white sm:text-sm"
                   >
                     {link.label}
                   </Link>
@@ -130,28 +154,52 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-4 sm:pt-5 grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div className="flex flex-col gap-1.5">
+        {/* Contact + Newsletter */}
+        <div className="mb-6 grid grid-cols-1 gap-6 border-t border-white/10 pt-6 md:grid-cols-2">
+          {/* Contact information */}
+          <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2 text-xs sm:text-sm">
-              <MapPin size={13} strokeWidth={1.75} />
+              <MapPin
+                size={14}
+                strokeWidth={1.75}
+                className="shrink-0"
+              />
               <span>Kathmandu, Nepal</span>
             </div>
-            <div className="flex items-center gap-2 text-xs sm:text-sm">
-              <Phone size={13} strokeWidth={1.75} />
-              <span>+977 1-XXXXXXX</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs sm:text-sm">
-              <Mail size={13} strokeWidth={1.75} />
+
+            <a
+              href={`tel:+977${PHONE_NUMBER}`}
+              className="flex items-center gap-2 text-xs transition-colors hover:text-white sm:text-sm"
+            >
+              <Phone
+                size={14}
+                strokeWidth={1.75}
+                className="shrink-0"
+              />
+              <span>+977 9847867651</span>
+            </a>
+
+            <a
+              href="mailto:hello@twinkledairy.com"
+              className="flex items-center gap-2 text-xs transition-colors hover:text-white sm:text-sm"
+            >
+              <Mail
+                size={14}
+                strokeWidth={1.75}
+                className="shrink-0"
+              />
               <span>hello@twinkledairy.com</span>
-            </div>
+            </a>
           </div>
 
+          {/* Newsletter */}
           <div>
-            <p className="font-semibold text-white text-xs uppercase tracking-wide mb-2">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-white">
               Get festival updates
             </p>
+
             {submitted ? (
-              <p className="text-xs sm:text-sm text-gold-500">
+              <p className="text-xs text-gold-500 sm:text-sm">
                 Thanks, you are on the list.
               </p>
             ) : (
@@ -161,26 +209,32 @@ export default function Footer() {
                 noValidate
               >
                 <div className="flex gap-2">
-                  <div className="flex-1">
-                    <Label htmlFor="newsletter-email" className="sr-only">
+                  <div className="min-w-0 flex-1">
+                    <Label
+                      htmlFor="newsletter-email"
+                      className="sr-only"
+                    >
                       Email address
                     </Label>
+
                     <Input
                       id="newsletter-email"
                       type="email"
                       placeholder="you@example.com"
-                      className="h-9 text-xs sm:text-sm bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-gold-500"
+                      className="h-9 border-white/20 bg-white/10 text-xs text-white placeholder:text-white/40 focus-visible:ring-gold-500 sm:text-sm"
                       {...register("email")}
                     />
                   </div>
+
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="h-9 text-xs sm:text-sm bg-gold-500 text-ink-900 hover:bg-gold-600 rounded-button px-4"
+                    className="h-9 rounded-button bg-gold-500 px-4 text-xs text-ink-900 hover:bg-gold-600 sm:text-sm"
                   >
                     Join
                   </Button>
                 </div>
+
                 {errors.email && (
                   <p className="text-xs text-error">
                     {errors.email.message}
@@ -191,8 +245,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-3 sm:pt-4 text-[11px] text-white/50 text-center">
-          (c) {new Date().getFullYear()} Twinkle Dairy. All rights reserved.
+        {/* Copyright */}
+        <div className="border-t border-white/10 pt-4 text-center text-[11px] text-white/50">
+          © {new Date().getFullYear()} Twinkle Dairy. All rights reserved.
         </div>
       </div>
     </footer>

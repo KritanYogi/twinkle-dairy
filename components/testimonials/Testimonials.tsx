@@ -7,7 +7,7 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 
 export default function Testimonials() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-8 sm:py-15">
+    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8 sm:py-15">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -37,11 +37,12 @@ export default function Testimonials() {
               custom={i + 2}
               className="flex flex-col rounded-card bg-white p-5 shadow-soft sm:p-8"
             >
-              <div className="mb-4 flex gap-1">
+              {/* Rating */}
+              <div className="mb-3 flex gap-1 sm:mb-4">
                 {Array.from({ length: 5 }).map((_, starIndex) => (
                   <Star
                     key={starIndex}
-                    size={15}
+                    size={14}
                     className={
                       starIndex < testimonial.rating
                         ? "fill-gold-500 text-gold-500"
@@ -51,21 +52,23 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="mb-6 flex-1 text-base leading-7 text-ink-900 sm:text-lg sm:leading-relaxed">
+              {/* Story */}
+              <p className="mb-5 flex-1 text-[15px] leading-6 text-ink-900 sm:mb-6 sm:text-lg sm:leading-relaxed">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
 
+              {/* Customer */}
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-500 font-display text-base text-white sm:h-11 sm:w-11 sm:text-lg">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-500 font-display text-base text-white sm:h-11 sm:w-11 sm:text-lg">
                   {testimonial.name.charAt(0)}
                 </div>
 
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-ink-900">
+                  <p className="truncate text-xs font-semibold text-ink-900 sm:text-sm">
                     {testimonial.name}
                   </p>
 
-                  <p className="truncate text-xs text-ink-500">
+                  <p className="truncate text-[11px] text-ink-500 sm:text-xs">
                     {testimonial.location}
                   </p>
                 </div>
