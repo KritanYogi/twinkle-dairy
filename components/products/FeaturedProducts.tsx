@@ -41,8 +41,8 @@ export default function FeaturedProducts() {
             modules={[Navigation, Pagination]}
             navigation
             pagination={{ clickable: true }}
-            spaceBetween={24}
-            slidesPerView={1.15}
+            spaceBetween={14}
+            slidesPerView={1.08}
             breakpoints={{
               640: { slidesPerView: 2.2 },
               1024: { slidesPerView: 3.2 },

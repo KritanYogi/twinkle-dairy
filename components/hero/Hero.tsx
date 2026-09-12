@@ -21,13 +21,19 @@ export default function Hero() {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    if (prefersReducedMotion || !sectionRef.current || !imageRef.current)
+
+    if (
+      prefersReducedMotion ||
+      !sectionRef.current ||
+      !imageRef.current
+    ) {
       return;
+    }
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
         imageRef.current,
-        { scale: 1.15 },
+        { scale: 1.12 },
         {
           scale: 1,
           ease: "none",
@@ -49,9 +55,12 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[100svh] min-h-[640px] w-full overflow-hidden"
+      className="relative min-h-[620px] h-[100svh] max-h-[900px] w-full overflow-hidden sm:min-h-[640px]"
     >
-      <div ref={imageRef} className="absolute inset-0 will-change-transform">
+      <div
+        ref={imageRef}
+        className="absolute inset-0 will-change-transform"
+      >
         <Image
           src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1920&q=80"
           alt="Fresh dairy products and traditional sweets at Twinkle Dairy"
@@ -60,31 +69,36 @@ export default function Hero() {
           className="object-cover"
           sizes="100vw"
         />
+
         <div
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, rgba(15,23,31,0.25) 0%, rgba(15,23,31,0.65) 100%)",
+              "linear-gradient(180deg, rgba(15,23,31,0.25) 0%, rgba(15,23,31,0.72) 100%)",
           }}
         />
       </div>
 
-      <div className="relative z-10 h-full flex flex-col items-start justify-end max-w-7xl mx-auto px-6 sm:px-8 pb-16 sm:pb-24 lg:pb-32">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-end px-4 pb-20 sm:px-8 sm:pb-24 lg:pb-32">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
+          className="w-full"
         >
           <motion.p
             variants={fadeUp}
-            className="text-gold-500 font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-[11px] sm:text-sm uppercase mb-3 sm:mb-5"
+            className="mb-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-500 sm:mb-5 sm:text-sm sm:tracking-[0.2em]"
           >
             Since three generations
           </motion.p>
 
-          <h1 className="font-display text-white text-3xl sm:text-6xl lg:text-7xl leading-[1.1] sm:leading-[1.05] max-w-3xl overflow-hidden">
+          <h1 className="max-w-3xl overflow-hidden font-display text-[2.15rem] leading-[1.08] tracking-tight text-white sm:text-6xl sm:leading-[1.05] lg:text-7xl">
             {words.map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-2 sm:mr-4">
+              <span
+                key={i}
+                className="mr-1.5 inline-block overflow-hidden sm:mr-4"
+              >
                 <motion.span
                   custom={i}
                   variants={wordReveal}
@@ -99,7 +113,7 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             custom={words.length + 1}
-            className="mt-3 sm:mt-6 max-w-xl text-white/85 text-sm sm:text-lg leading-relaxed"
+            className="mt-4 max-w-xl text-sm leading-6 text-white/85 sm:mt-6 sm:text-lg sm:leading-relaxed"
           >
             Farm-fresh dairy and handcrafted sweets, made in small batches
             every morning — never the other way around.
@@ -108,17 +122,18 @@ export default function Hero() {
           <motion.div
             variants={fadeUp}
             custom={words.length + 2}
-            className="mt-5 sm:mt-10 flex flex-wrap gap-3 sm:gap-4"
+            className="mt-6 flex w-full flex-col gap-2.5 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4"
           >
             <Link
               href="/categories/milk"
-              className="rounded-button bg-gold-500 px-5 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-ink-900 shadow-gold-glow transition-transform hover:-translate-y-0.5"
+              className="flex min-h-11 w-full items-center justify-center rounded-button bg-gold-500 px-5 py-3 text-center text-[11px] font-semibold uppercase tracking-wide text-ink-900 shadow-gold-glow transition-transform hover:-translate-y-0.5 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
             >
               Shop Fresh Dairy
             </Link>
+
             <Link
               href="/categories/traditional-sweets"
-              className="rounded-button border border-white/40 px-5 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+              className="flex min-h-11 w-full items-center justify-center rounded-button border border-white/40 px-5 py-3 text-center text-[11px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm transition-colors hover:bg-white/10 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
             >
               Explore Sweets
             </Link>
@@ -127,23 +142,27 @@ export default function Hero() {
       </div>
 
       <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/70"
+        animate={{ y: [0, 7, 0] }}
+        transition={{
+          duration: 1.8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 text-white/65 sm:bottom-8"
         aria-hidden="true"
       >
-        <ChevronDown size={28} strokeWidth={1.5} />
+        <ChevronDown size={24} strokeWidth={1.5} />
       </motion.div>
 
       <div className="absolute -bottom-px left-0 right-0 z-10 leading-[0]">
         <svg
           viewBox="0 0 1440 80"
-          className="w-full h-[48px] sm:h-[64px]"
+          className="h-[42px] w-full sm:h-[64px]"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
           <path
-            d="M0,32 C 120,60 200,0 320,24 C 440,48 500,72 620,56 C 740,40 800,4 920,20 C 1040,36 1100,64 1220,44 C 1320,28 1380,36 1440,24 L1440,80 L0,80 Z"
+            d="M0,32 C120,60 200,0 320,24 C440,48 500,72 620,56 C740,40 800,4 920,20 C1040,36 1100,64 1220,44 C1320,28 1380,36 1440,24 L1440,80 L0,80 Z"
             fill="#FFFDF7"
           />
         </svg>

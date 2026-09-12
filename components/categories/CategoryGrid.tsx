@@ -7,7 +7,7 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 
 export default function CategoryGrid() {
   return (
-    <section className="max-w-7xl mx-auto px-6 sm:px-8 py-15">
+    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-8 sm:py-15">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -16,7 +16,7 @@ export default function CategoryGrid() {
       >
         <motion.p
           variants={fadeUp}
-          className="text-green-600 font-semibold tracking-[0.2em] text-xs sm:text-sm uppercase mb-4"
+          className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-green-600 sm:mb-4 sm:text-sm sm:tracking-[0.2em]"
         >
           What we make
         </motion.p>
@@ -24,34 +24,38 @@ export default function CategoryGrid() {
         <motion.h2
           variants={fadeUp}
           custom={1}
-          className="font-display text-ink-900 text-3xl sm:text-4xl lg:text-5xl max-w-xl mb-12"
+          className="mb-8 max-w-xl font-display text-[2rem] leading-[1.1] text-ink-900 sm:mb-12 sm:text-4xl lg:text-5xl"
         >
           Every category, made the same honest way.
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {categories.map((category, i) => (
             <motion.a
               key={category.id}
               href={`/categories/${category.id}`}
               variants={fadeUp}
               custom={i + 2}
-              className="group relative rounded-card overflow-hidden h-72 shadow-soft transition-shadow hover:shadow-soft-hover"
+              className="group relative h-60 overflow-hidden rounded-card shadow-soft transition-shadow hover:shadow-soft-hover sm:h-72"
             >
               <Image
                 src={category.image}
                 alt={category.name}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 639px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
+
               <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/10 to-transparent" />
 
-              <div className="relative h-full flex flex-col justify-end p-6">
-                <h3 className="font-display text-white text-2xl mb-1">
+              <div className="relative flex h-full flex-col justify-end p-5 sm:p-6">
+                <h3 className="mb-1 font-display text-xl text-white sm:text-2xl">
                   {category.name}
                 </h3>
-                <p className="text-white/80 text-sm">{category.tagline}</p>
+
+                <p className="text-xs leading-5 text-white/80 sm:text-sm">
+                  {category.tagline}
+                </p>
               </div>
             </motion.a>
           ))}
