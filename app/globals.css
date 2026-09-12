@@ -55,6 +55,57 @@
 }
 
 /* ------------------------------------------------------------------ */
+/* MOBILE RESPONSIVE OVERRIDES                                         */
+/* ------------------------------------------------------------------ */
+/* The design above uses a "doubled" 8px-based spacing scale (spacing-1 */
+/* through spacing-15) which reads as generous and premium on desktop. */
+/* Most sections/cards/buttons across the site use these numbers       */
+/* (p-8, mb-12, py-15, px-8 py-4, gap-12, etc.) WITHOUT a sm:/lg:       */
+/* override, so the same oversized values were being applied on phones */
+/* too — that's the root cause of the oversized headings, buttons and  */
+/* cramped-yet-spacious-feeling sections on mobile.                    */
+/*                                                                      */
+/* Rather than touching every component, we scale these same tokens    */
+/* back down to Tailwind's standard (un-doubled) values ONLY below the */
+/* `sm` breakpoint (640px). Every sm:/lg: prefixed utility already in  */
+/* the codebase lives in its own `@media (min-width: 640px)` rule and  */
+/* is completely untouched, so desktop and tablet-and-up keep the      */
+/* exact premium spacing/typography already in place. This block is    */
+/* intentionally NOT inside an @layer, so per the CSS cascade-layers   */
+/* spec it wins over the `@theme` layer above when the media query     */
+/* matches, and simply falls away above 640px.                         */
+/* ------------------------------------------------------------------ */
+@media (max-width: 639px) {
+  :root {
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+    --spacing-8: 32px;
+    --spacing-10: 40px;
+    --spacing-12: 48px;
+    --spacing-15: 60px;
+
+    /* Body copy set in text-lg (18px) reads large for mobile paragraphs. */
+    --text-lg: 1rem;
+    --text-lg--line-height: calc(1.5 / 1);
+  }
+}
+
+/* Belt-and-braces guard against accidental horizontal scroll on any   */
+/* screen size (e.g. a stray wide element) — invisible unless something */
+/* would otherwise overflow, so it doesn't change desktop appearance.  */
+html {
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ------------------------------------------------------------------ */
 /* BASE STYLES                                                         */
 /* ------------------------------------------------------------------ */
 body {
