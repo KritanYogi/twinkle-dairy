@@ -3,34 +3,35 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { slideInLeft, slideInRight } from "@/lib/motion";
+
+import { slideInLeft } from "@/lib/motion";
 
 export default function StorySection() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-8 sm:py-15">
-      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-20">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={slideInLeft}
-          className="relative h-72 overflow-hidden rounded-image sm:h-80 lg:h-[480px]"
-        >
+    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8 sm:py-15">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        variants={slideInLeft}
+        className="grid grid-cols-1 items-center gap-7 lg:grid-cols-2 lg:gap-20"
+      >
+        {/* Story image */}
+        <div className="relative h-60 overflow-hidden rounded-image sm:h-80 lg:h-[480px]">
           <Image
             src="https://images.unsplash.com/photo-1605880980331-20a711b27338?auto=format&fit=crop&w=1000&q=80"
             alt="Traditional dairy-making, passed down through generations"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover transition-transform duration-700 hover:scale-105"
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={slideInRight}
-        >
+        {/* Story content */}
+        <div>
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-green-600 sm:mb-4 sm:text-sm sm:tracking-[0.2em]">
             Our story
           </p>
@@ -39,26 +40,26 @@ export default function StorySection() {
             Three generations, one recipe book.
           </h2>
 
-          <p className="mb-4 text-base leading-7 text-ink-500 sm:text-lg sm:leading-relaxed">
+          <p className="mb-4 text-[15px] leading-6 text-ink-500 sm:text-lg sm:leading-relaxed">
             It started with a single milk cart and a handwritten ledger.
             Today, the same family still oversees every batch, the ghee
             still simmers the slow way, and the sweets are still shaped
             by hand.
           </p>
 
-          <p className="mb-7 text-base leading-7 text-ink-500 sm:mb-8 sm:text-lg sm:leading-relaxed">
+          <p className="mb-6 text-[15px] leading-6 text-ink-500 sm:mb-8 sm:text-lg sm:leading-relaxed">
             No shortcuts were ever added to the recipe. We just found
             better ways to keep it fresh, from our kitchen to your door.
           </p>
 
           <Link
             href="/about"
-            className="inline-flex min-h-11 items-center justify-center rounded-button border border-ink-900/20 px-5 py-3 text-xs font-semibold uppercase tracking-wide text-ink-900 transition-colors hover:bg-ink-900 hover:text-white sm:px-8 sm:py-4 sm:text-sm"
+            className="inline-flex min-h-10 items-center justify-center rounded-button border border-ink-900/20 px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-ink-900 transition-colors hover:bg-ink-900 hover:text-white sm:min-h-11 sm:px-8 sm:py-4 sm:text-sm"
           >
             Read Our Full Story
           </Link>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

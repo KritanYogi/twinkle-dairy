@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Phone } from "lucide-react";
+import {
+  MessageCircle,
+  Phone,
+} from "lucide-react";
 
 const PHONE_NUMBER = "9847867651";
 
@@ -12,11 +15,24 @@ export default function FloatingContactButtons() {
       <motion.a
         href={`tel:+977${PHONE_NUMBER}`}
         aria-label="Call Twinkle Dairy"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.6, duration: 0.4 }}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.92 }}
+        initial={{
+          opacity: 0,
+          scale: 0.8,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          delay: 0.6,
+          duration: 0.4,
+        }}
+        whileHover={{
+          scale: 1.08,
+        }}
+        whileTap={{
+          scale: 0.92,
+        }}
         className="flex h-9 w-9 items-center justify-center rounded-full bg-ink-900 text-white shadow-soft-hover sm:h-14 sm:w-14"
       >
         <Phone
@@ -32,11 +48,24 @@ export default function FloatingContactButtons() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Message Twinkle Dairy on WhatsApp"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.4, duration: 0.4 }}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.92 }}
+        initial={{
+          opacity: 0,
+          scale: 0.8,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          delay: 0.4,
+          duration: 0.4,
+        }}
+        whileHover={{
+          scale: 1.08,
+        }}
+        whileTap={{
+          scale: 0.92,
+        }}
         className="flex h-9 w-9 items-center justify-center rounded-full bg-green-500 text-white shadow-gold-glow sm:h-14 sm:w-14"
       >
         <MessageCircle
