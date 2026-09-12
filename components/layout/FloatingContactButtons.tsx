@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle, Phone } from "lucide-react";
 
-const PHONE_NUMBER = "+97710000000";
+const PHONE_NUMBER = "+9779847867651";
 
 export default function FloatingContactButtons() {
   return (
